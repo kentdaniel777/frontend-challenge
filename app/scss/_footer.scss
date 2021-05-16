@@ -1,0 +1,86 @@
+.footer{
+    background: $darkBlue;
+    color: $white;
+    padding: 2.5rem;
+    text-align: center;
+
+    &__content{
+        @include breakpoint-up(large){
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: 
+        "logo links1 links2 cta"
+        "social links1 links2 copyright"
+        ;
+        grid-gap: 1rem;
+        justify-items: start;
+    }
+    }
+    
+    a{
+        color: $white;
+    }
+    &__logo{
+        display: inline-block;
+        margin-bottom: 1.875rem;
+
+        @include breakpoint-up(large){
+            grid-area: logo;
+            
+        }
+    }
+
+    &__social{
+        margin-bottom: 1.875rem;
+        a:not(:last-child){
+            margin-right: 1rem;
+        }
+        
+        @include breakpoint-up(large){
+            margin-bottom: 0;
+             align-self: end;
+            grid-area: social;
+           
+        }
+    }
+
+    &__links{
+       display: flex;
+       flex-direction: column;
+       line-height: 2;
+
+       @include breakpoint-up(large){
+        align-items: start;
+    }
+        &.col1{
+            @include breakpoint-up(large){
+                grid-area: links1;
+            }
+        }
+
+        &.col2{
+            margin-bottom: 1.875rem;
+            @include breakpoint-up(large){
+                grid-area: links2;
+            }
+        }
+    }
+    
+    &__cta{
+        margin-bottom: 1.875rem;
+        @include breakpoint-up(large){
+            grid-area: cta;
+            justify-self: end;
+        }
+    }
+    
+    &__copyright{
+        @include breakpoint-up(large){
+            margin-bottom: 0;
+            align-self: end;
+            grid-area: copyright;
+            justify-self: end;
+        }
+    }
+}
